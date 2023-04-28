@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+}
+#root {
+  height: 100vh;
+}
+.overlay {
+  position: absolute;
+  z-index: 1;
+}
