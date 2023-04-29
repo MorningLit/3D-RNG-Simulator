@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+
 import { ThreeElements } from "@react-three/fiber";
 import { usePlane } from "@react-three/cannon";
 import { useTexture } from "@react-three/drei";
