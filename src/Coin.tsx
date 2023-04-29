@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { ThreeElements, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 import { useCylinder } from "@react-three/cannon";
