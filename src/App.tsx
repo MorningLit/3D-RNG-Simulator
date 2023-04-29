@@ -11,28 +11,39 @@ function App() {
   return (
     <>
       <div className="overlay">
-        <label>
-          Number of Coins: {numberOfCoin}
-          <input
-            type="range"
-            onChange={(e) => setNumberOfCoin(Number(e.target.value))}
-            defaultValue={numberOfCoin}
-            min={0}
-            max={20}
-          />
-        </label>
-        <label>
-          Number of Dice: {numberOfDice}
-          <input
-            type="range"
-            onChange={(e) => setNumberOfDice(Number(e.target.value))}
-            defaultValue={numberOfDice}
-            min={0}
-            max={20}
-          />
-        </label>
+        <div>
+          <label>
+            Number of Coins: {numberOfCoin}
+            <input
+              type="range"
+              onChange={(e) => setNumberOfCoin(Number(e.target.value))}
+              defaultValue={numberOfCoin}
+              min={0}
+              max={20}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Number of Dice: {numberOfDice}
+            <input
+              type="range"
+              onChange={(e) => setNumberOfDice(Number(e.target.value))}
+              defaultValue={numberOfDice}
+              min={0}
+              max={20}
+            />
+          </label>
+        </div>
       </div>
-      <Canvas>
+      <Canvas
+        camera={{
+          fov: 90,
+          near: 0.1,
+          far: 1000,
+          position: [0, 28, 10],
+        }}
+      >
         <Physics>
           <ambientLight />
           <OrbitControls />
