@@ -1,6 +1,6 @@
 import Dice from "./Dice";
 import { Canvas } from "@react-three/fiber";
-import { Physics } from "@react-three/cannon";
+import { Physics, Debug } from "@react-three/cannon";
 import Coin from "./Coin";
 import { OrbitControls } from "@react-three/drei";
 import Plane from "./Plane";
@@ -45,16 +45,27 @@ function App() {
         }}
       >
         <Physics>
-          <ambientLight />
+          {/* <Debug scale={1} color="black"> */}
           <OrbitControls />
-          <pointLight position={[10, 10, 10]} />
-          {Array.from({ length: numberOfDice }).map((_, i) => (
-            <Dice position={[0, 1, 0]} key={i} />
-          ))}
-          {Array.from({ length: numberOfCoin }).map((_, i) => (
-            <Coin key={i} position={[0, 1, 0]} rotation={[0, 0, 0]} />
-          ))}
+          <pointLight position={[0, 40, 0]} />
+          {Array.from({ length: numberOfDice }).map((_, i) => {
+            const randomX = Math.random() * 41 - 20;
+            const randomZ = Math.random() * 41 - 20;
+            return <Dice position={[randomX, 1, randomZ]} key={i} />;
+          })}
+          {Array.from({ length: numberOfCoin }).map((_, i) => {
+            const randomX = Math.random() * 41 - 20;
+            const randomZ = Math.random() * 41 - 20;
+            return (
+              <Coin
+                key={i}
+                position={[randomX, 1, randomZ]}
+                rotation={[0, 0, 0]}
+              />
+            );
+          })}
           <Plane />
+          {/* </Debug> */}
         </Physics>
       </Canvas>
     </>
