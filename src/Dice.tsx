@@ -1,11 +1,9 @@
 import { ThreeElements, useLoader } from "@react-three/fiber";
 import { useBox } from "@react-three/cannon";
-import { useTexture } from "@react-three/drei";
 import { TextureLoader } from "three";
 
 const Dice = (props: ThreeElements["mesh"]) => {
   const [ref, api] = useBox(() => ({ mass: 1, ...props, args: [1, 1, 1] }));
-  // const [dice1, dice2] = useTexture(["/dice1.png", "/dice2.png"]);
   const [dice1, dice2, dice3, dice4, dice5, dice6] = useLoader(TextureLoader, [
     "/dice1.png",
     "/dice2.png",

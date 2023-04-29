@@ -1,13 +1,13 @@
-import { ThreeElements } from "@react-three/fiber";
-import { DoubleSide } from "three";
-import { useBox, useCylinder } from "@react-three/cannon";
+import { ThreeElements, useLoader } from "@react-three/fiber";
+import { TextureLoader } from "three";
+import { useCylinder } from "@react-three/cannon";
 const Coin = (props: ThreeElements["mesh"]) => {
   const [ref, api] = useCylinder(() => ({
     mass: 1,
     args: [1, 1, 0.1, 16, 1],
     ...props,
   }));
-  //somehow fix why coin is sinking into the plane or file a github issue
+  const [head, tail] = useLoader(TextureLoader, ["./head.png", "./tail.png"]);
   return (
     <mesh
       ref={ref}
@@ -24,7 +24,9 @@ const Coin = (props: ThreeElements["mesh"]) => {
       }}
     >
       <cylinderGeometry args={[1, 1, 0.1, 16, 1]} />
-      <meshStandardMaterial color="gold" side={DoubleSide} />
+      <meshStandardMaterial attach={"material-0"} color="gold" />
+      <meshStandardMaterial attach={"material-1"} color="gold" map={head} />
+      <meshStandardMaterial attach={"material-2"} color="gold" map={tail} />
     </mesh>
   );
 };

@@ -1,5 +1,6 @@
 import { ThreeElements } from "@react-three/fiber";
 import { usePlane } from "@react-three/cannon";
+import { useTexture } from "@react-three/drei";
 
 const Plane = (props: ThreeElements["planeGeometry"]) => {
   const [ref] = usePlane(() => ({
@@ -7,11 +8,16 @@ const Plane = (props: ThreeElements["planeGeometry"]) => {
     rotation: [-Math.PI / 2, 0, 0],
     ...props,
   }));
+  const background = useTexture("/background.jpg");
+
   return (
-    <mesh ref={ref}>
-      <planeGeometry args={[100, 100]} />
-      <meshStandardMaterial color="blue" />
-    </mesh>
+    <>
+      <primitive attach="background" object={background} />
+      <mesh ref={ref}>
+        <planeGeometry args={[100, 100]} />
+        <meshStandardMaterial color="#9a7b4f" />
+      </mesh>
+    </>
   );
 };
 
