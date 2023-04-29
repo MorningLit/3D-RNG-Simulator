@@ -2,7 +2,7 @@ import Dice from "./Dice";
 import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
 import Coin from "./Coin";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stats } from "@react-three/drei";
 import Plane from "./Plane";
 import { useState } from "react";
 function App() {
@@ -41,13 +41,14 @@ function App() {
           fov: 90,
           near: 0.1,
           far: 1000,
-          position: [0, 28, 10],
+          position: [0, 14, 26],
         }}
       >
         <Physics>
           {/* <Debug scale={1} color="black"> */}
           <OrbitControls />
-          <pointLight position={[0, 40, 0]} />
+          {/* <ambientLight /> */}
+          <pointLight position={[0, 50, 20]} />
           {Array.from({ length: numberOfDice }).map((_, i) => {
             const randomX = Math.random() * 41 - 20;
             const randomZ = Math.random() * 41 - 20;
@@ -65,6 +66,7 @@ function App() {
             );
           })}
           <Plane />
+          {/* <Stats /> */}
           {/* </Debug> */}
         </Physics>
       </Canvas>
