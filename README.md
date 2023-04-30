@@ -1,6 +1,6 @@
 # 3D-RNG-Simulator
 
-![showcase](./showcase.gif)
+![showcase](./public/showcase.gif)\
 Visit the site [here](https://3d-diceapp.netlify.app/)\
 Made using React + React Three.js\
 _scuffed tabletop simulator_
