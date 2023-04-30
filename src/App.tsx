@@ -2,7 +2,7 @@ import Dice from "./Dice";
 import { Canvas } from "@react-three/fiber";
 import { Physics, Debug } from "@react-three/cannon";
 import Coin from "./Coin";
-import { OrbitControls, Stats, useTexture } from "@react-three/drei";
+import { OrbitControls, Stats } from "@react-three/drei";
 import Plane from "./Plane";
 import { useState } from "react";
 function App() {

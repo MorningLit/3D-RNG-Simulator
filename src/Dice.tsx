@@ -12,6 +12,7 @@ const Dice = (props: ThreeElements["mesh"]) => {
     "/dice5.png",
     "/dice6.png",
   ]);
+  console.log(props);
 
   return (
     <mesh
